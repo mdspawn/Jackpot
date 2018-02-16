@@ -55,7 +55,7 @@ function setup(hasAccount) {
 
     $("#btn-custom-bid").click(function() {
         var customBid = web3.toWei($("#custom-bid").val(), "ether");
-	if (customBid < minimumBid) {
+	if ($("#custom-bid").val() < web3.fromWei(minimumBid, "ether")) {
 	    if (!confirm("Warning: Your custom bid of " + $("#custom-bid").val() + " ETH is smaller than the minimum bid of " + web3.fromWei(minimumBid, "ether").toFormat() + " ETH. You will not become the new leader if you proceed."))
 		return;
 	}
